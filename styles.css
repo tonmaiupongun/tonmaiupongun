@@ -1,0 +1,95 @@
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: #f8f9fa; /* สีเทาอ่อนพาสเทล */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333; /* สีตัวอักษรที่ดูอบอุ่น */
+}
+
+.header {
+    width: 100%;
+    background-color: #1289d8; /* สีฟ้าพาสเทล */
+    color: #ffffff;
+    text-align: right;
+    padding: 10px 20px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.username {
+    font-weight: bold;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    max-width: 450px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+h1 {
+    text-align: center;
+    color: #5d5d5d; /* สีเทาเข้มแต่ไม่หนัก */
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #777; /* สีเทาอ่อน */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #30dbd3;
+    border-radius: 8px;
+    background-color: #f0f4f8; /* สีพื้นหลังพาสเทล */
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #d12e1f; /* สีแดงพาสเทลที่เข้มขึ้น */
+    color: #ffffff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e55a4f; /* สีแดงเข้มขึ้นเมื่อชี้ */
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    color: #ff6f61; /* สีแดงพาสเทล */
+}
+
+.container h1, .container #result {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+input::placeholder {
+    color: #aaa; /* สีข้อความใน placeholder */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
