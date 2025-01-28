@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลดหย่อนบิดามารดาและผู้พิการ</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>ลดหย่อนสำหรับบิดามารดาและผู้พิการ</h1>
+        <form id="deductionForm1">
+            <label for="parentDeduction">การลดหย่อนบิดามารดา (บาท):</label>
+            <input type="text" id="parentDeduction" class="format-number" placeholder="ไม่เกิน 30,000 บาทต่อคน">
+            
+            <label for="disabilityDeduction">การลดหย่อนสำหรับผู้พิการ (บาท):</label>
+            <input type="text" id="disabilityDeduction" class="format-number" placeholder="ไม่เกิน 60,000 บาท">
+
+            <label for="hasChild">มีบุตรหรือไม่:</label>
+            <select id="hasChild" onchange="toggleChildFields()">
+                <option value="no">ไม่มี</option>
+                <option value="yes">มี</option>
+            </select>
+
+            <div id="childFields" style="display: none;">
+                <label for="numChildren">จำนวนบุตร:</label>
+                <input type="text" id="numChildren" class="format-number" placeholder="กรอกจำนวนบุตร">
+                <small>ลดหย่อนได้คนละ 30,000 บาท</small>
+            </div>
+
+            <label for="spouseDeduction">การลดหย่อนคู่สมรสไม่มีรายได้ (บาท):</label>
+            <input type="text" id="spouseDeduction" class="format-number" placeholder="ไม่เกิน 60,000 บาท">
+
+            <button type="submit">ถัดไป</button>
+        </form>
+    </div>
+    <script>
+        function toggleChildFields() {
+            const hasChild = document.getElementById('hasChild').value;
+            const childFields = document.getElementById('childFields');
+            if (hasChild === 'yes') {
+                childFields.style.display = 'block';
+            } else {
+                childFields.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

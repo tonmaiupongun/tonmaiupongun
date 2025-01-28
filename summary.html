@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สรุปผลภาษีที่ต้องจ่าย</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        #taxToPay {
+            font-size: 2rem;
+            font-weight: bold;
+            color: red;
+        }
+        .highlight {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body onload="calculateAndDisplaySummary()">
+    <div class="container">
+        <h1>สรุปผลการคำนวณภาษี</h1>
+        <div id="summaryDetails">
+            <p class="highlight">รายได้ทั้งหมด: <span id="totalIncome">0</span> บาท</p>
+            <p class="highlight">ค่าใช้จ่ายที่หัก (50% แต่ไม่เกิน 100,000 บาท): <span id="expenseDeduction">0</span> บาท</p>
+            <p class="highlight">รายได้ที่ใช้คำนวณภาษี: <span id="taxableIncome">0</span> บาท</p>
+            <p class="highlight">ค่าลดหย่อนทั้งหมด: <span id="totalDeductions">0</span> บาท</p>
+            <p>รายการลดหย่อน:</p>
+            <ul id="deductionDetails"></ul>
+            <p class="highlight">รายได้สุทธิ: <span id="netIncome">0</span> บาท</p>
+            <p>📌 <strong>ภาษีที่ต้องจ่าย:</strong> <span id="taxToPay">0</span> บาท</p>
+        </div>
+        <div id="calculationExplanation">
+            <h2>วิธีการคำนวณ</h2>
+            <p id="calculationDetails"></p>
+            <h2>คำแนะนำ</h2>
+            <p id="taxAdvice"></p>
+        </div>
+        <button onclick="window.location.href='index.html'">กลับไปหน้าแรก</button>
+    </div>
+</body>
+</html>

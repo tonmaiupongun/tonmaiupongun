@@ -3,73 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เว็บคำนวณภาษีรายได้ไทย</title>
+    <title>หน้าแรก</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="header">
-        <div class="username">จัดทำโดยไอ้ธนภัทร เงินศรี</div>
-    </div>
+    <div class="header-name">ต้นไม้ทำจ้า</div>
     <div class="container">
-        <h1>คำนวณภาษีรายได้บุคคลธรรมดา</h1>
-        <form id="taxForm" onsubmit="handleSubmit(event)">
-            <label for="income">รายได้ต่อปี (บาท):</label>
-            <input type="number" id="income" placeholder="กรอกรายได้ของคุณ" required min="0">
-
-            <label for="deductionPersonal">ค่าลดหย่อนส่วนตัว (บาท):</label>
-            <input type="number" id="deductionPersonal" value="60000" min="0">
-
-            <label for="insuranceDeduction">ประกันชีวิต (บาท):</label>
-            <input type="number" id="insuranceDeduction" placeholder="กรอกจำนวนเงินประกันชีวิต" min="0">
-
-            <label for="spouseDeduction">ค่าลดหย่อนคู่สมรส (บาท):</label>
-            <input type="number" id="spouseDeduction" value="0" placeholder="กรณีไม่มีรายได้" min="0">
-
-            <label for="childDeduction">ค่าลดหย่อนบุตร (บาท/คน):</label>
-            <input type="number" id="childDeduction" value="0" placeholder="จำนวนบุตร" min="0">
-
-            <button type="submit">คำนวณ</button>
-        </form>
+        <h1 class="animated-text">
+            ต้องการรู้ภาษีของคุณไหม
+    
+            <span class="question-mark">?</span>
+        </h1>
+        <button onclick="window.location.href='home.html'">ต้องการรู้</button>
     </div>
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault(); // ป้องกันการส่งฟอร์มแบบปกติ
-
-            // ดึงค่าจากฟอร์ม
-            const income = parseFloat(document.getElementById('income').value);
-            const deductionPersonal = parseFloat(document.getElementById('deductionPersonal').value);
-            const insuranceDeduction = parseFloat(document.getElementById('insuranceDeduction').value);
-            const spouseDeduction = parseFloat(document.getElementById('spouseDeduction').value);
-            const childDeduction = parseFloat(document.getElementById('childDeduction').value) * 30000; // สมมติลดหย่อนบุตร 30,000 บาทต่อคน
-
-            // คำนวณค่าลดหย่อนรวม
-            const totalDeductions = deductionPersonal + insuranceDeduction + spouseDeduction + childDeduction;
-            let taxableIncome = income - totalDeductions;
-            taxableIncome = taxableIncome < 0 ? 0 : taxableIncome; // ถ้าภาษีติดลบให้เป็น 0
-
-            // คำนวณภาษีตามช่วงรายได้
-            let tax = 0;
-            if (taxableIncome <= 150000) {
-                tax = 0; // ยกเว้นภาษี
-            } else if (taxableIncome <= 300000) {
-                tax = (taxableIncome - 150000) * 0.05;
-            } else if (taxableIncome <= 500000) {
-                tax = (taxableIncome - 300000) * 0.1 + 7500;
-            } else if (taxableIncome <= 750000) {
-                tax = (taxableIncome - 500000) * 0.15 + 27500;
-            } else if (taxableIncome <= 1000000) {
-                tax = (taxableIncome - 750000) * 0.2 + 65000;
-            } else if (taxableIncome <= 2000000) {
-                tax = (taxableIncome - 1000000) * 0.25 + 115000;
-            } else if (taxableIncome <= 5000000) {
-                tax = (taxableIncome - 2000000) * 0.3 + 365000;
-            } else {
-                tax = (taxableIncome - 5000000) * 0.35 + 1265000;
-            }
-
-            // เปลี่ยนหน้าไปยังหน้าผลลัพธ์พร้อมแสดงภาษี
-            window.location.href = `result.html?tax=${tax}`;
-        }
-    </script>
 </body>
 </html>
